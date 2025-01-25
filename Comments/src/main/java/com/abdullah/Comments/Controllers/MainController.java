@@ -2,9 +2,12 @@ package com.abdullah.Comments.Controllers;
 
 import com.abdullah.Comments.Entities.Comments;
 import com.abdullah.Comments.Repositories.CommentsRepository;
+import com.abdullah.Comments.RequestTypes.CommentDoctor;
+import com.abdullah.Comments.Services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.stream.events.Comment;
 import java.util.List;
 
 @RestController
@@ -12,26 +15,17 @@ import java.util.List;
 public class MainController {
 
     @Autowired
-    private CommentsRepository commentsRepository;
+    private CommentService commentService;
 
-    @GetMapping("/getAllCommentsForDoctor")
-    public List<Comments> getAllCommentsForDoctorId(@RequestParam int doctorId) {
-        return commentsRepository.findByDoctorId(doctorId);
+    @GetMapping("/getAllCommentsForDoctor/{doctorId}")
+    public List<Comments> getAllCommentsForDoctorId(@PathVariable int doctorId) {
+        return commentService.findByDoctorId(doctorId);
     }
 
-    // TODO: ha bunları git request body'den al
-    @PostMapping("/commentForDoctor")
-    public void addCommentForDoctorId(@RequestParam int doctorId, @RequestParam String comment) {
-        // add the comment
+    @PostMapping("/commentDoctor")
+    public void addCommentForDoctorId(@RequestBody CommentDoctor request) {
+        Comments comment = new Comments(request.getDoctorId(), request.getUserId(), request.getComment(), request.getRating());
+        commentService.addComment(comment);
     }
-
-    @PostMapping("/rateDoctor")
-    public void addRatingForDoctorId(@RequestParam int doctorId, @RequestParam int rating) {
-        // add the rating
-    }
-
-
-
-
 
 }
