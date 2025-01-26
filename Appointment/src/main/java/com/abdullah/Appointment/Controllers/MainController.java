@@ -41,10 +41,10 @@ public class MainController {
     }
 
     @PostMapping("/incomplete")
-    public void incompleteVisit(@PathParam(value="email") String email, @PathParam(value="id") String doctorId)
+    public void incompleteVisit(@PathParam(value="email") String email, @PathParam(value="id") String id)
     {
-        String message = 'I' + doctorId + "\r\n" + email;
-        template.convertAndSend(RabbitMQConfig.EXCHANGE, RabbitMQConfig.ROUTING_KEY, email);
+        String message = 'I' + id + "\r\n" + email;
+        template.convertAndSend(RabbitMQConfig.EXCHANGE, RabbitMQConfig.ROUTING_KEY, message);
     }
 
     @PostMapping("/notification")

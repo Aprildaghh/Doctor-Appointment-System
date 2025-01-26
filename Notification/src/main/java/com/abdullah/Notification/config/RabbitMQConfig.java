@@ -1,4 +1,4 @@
-package com.abdullah.Appointment.config;
+package com.abdullah.Notification.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

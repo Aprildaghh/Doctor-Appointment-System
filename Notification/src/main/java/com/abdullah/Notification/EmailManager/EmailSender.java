@@ -17,6 +17,7 @@ public class EmailSender {
         message.setSubject("Doktoru değerlendirmek için bu bağlantıya tıkla:" +
                 " localhost:8079/rate/"+doctorId);
         message.setText("body");
+        mailSender.send(message);
     }
 
     public void sendUnfinishedAppointmentEmail(int doctorId, String email) {
@@ -25,5 +26,6 @@ public class EmailSender {
         message.setSubject("You have 1 unfinished appointment." +
                 " localhost:8079/unfinished/"+doctorId);
         message.setText("body");
+        mailSender.send(message);
     }
 }
