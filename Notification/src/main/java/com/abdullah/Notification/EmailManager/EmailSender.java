@@ -14,18 +14,18 @@ public class EmailSender {
     public void sendRateEmail(int doctorId, String email) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
-        message.setSubject("Doktoru değerlendirmek için bu bağlantıya tıkla:" +
+        message.setText("Doktoru değerlendirmek için bu bağlantıya tıkla:" +
                 " localhost:8079/rate/"+doctorId);
-        message.setText("body");
+        message.setSubject("Rate Doctor");
         mailSender.send(message);
     }
 
     public void sendUnfinishedAppointmentEmail(int doctorId, String email) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
-        message.setSubject("You have 1 unfinished appointment." +
+        message.setText("You have 1 unfinished appointment." +
                 " localhost:8079/unfinished/"+doctorId);
-        message.setText("body");
+        message.setSubject("Unfinished appointment");
         mailSender.send(message);
     }
 }
