@@ -1,6 +1,6 @@
 # PROJECT INTRO
 - This is a Doctor Appointment System made for 4458 lecture final.
-- Link to the presentation: --
+- Link to the presentation: https://drive.google.com/file/d/1SPfqgL9xty9UdmO1J4k5zDrpHkCcSacZ/view?usp=sharing
 - Dockerfiles can be found inside of each service folder.
 
 # Services
