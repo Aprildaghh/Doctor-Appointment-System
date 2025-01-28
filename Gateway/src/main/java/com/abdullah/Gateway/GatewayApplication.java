@@ -22,9 +22,6 @@ public class GatewayApplication {
 				.route(p -> p
 						.path("/api/v1/appointment/**")
 						.uri("http://localhost:8082/"))
-//				.route(p -> p
-//						.path("/api/v1/4453/**")
-//						.uri("http://localhost:8083/"))
 				.build();
 	}
 
