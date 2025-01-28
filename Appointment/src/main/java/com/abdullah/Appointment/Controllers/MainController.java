@@ -48,9 +48,9 @@ public class MainController {
     }
 
     @PostMapping("/notification")
-    public void notificationRate(@PathParam(value="email") String email, @PathParam(value="id") String doctorId)
+    public void notificationRate(@PathParam(value="email") String email, @PathParam(value="id") String id)
     {
-        String message = 'R' + doctorId + "\r\n" + email;
+        String message = 'R' + id + "\r\n" + email;
         template.convertAndSend(RabbitMQConfig.EXCHANGE, RabbitMQConfig.ROUTING_KEY, message);
     }
 
