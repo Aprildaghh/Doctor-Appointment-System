@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>20070006006</title>
+    <style>
+        .btn {
+            text-decoration: none;
+            display: block;
+            color: white;
+            background-color: grey;
+            border-radius: 5px;
+            width: 75px;
+            height: 50px;
+            text-align: center;
+            margin: 10px;
+            vertical-align: middle;
+        }
+        .btn a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
+<div >
+    <a class="btn" th:href="@{/register?isDoctor=1}">Register as a doctor</a>
+</div>
+
+<div >
+    <a class="btn" th:href="@{/register?isDoctor=0}">Register as a patient</a>
+</div>
+
+<div >
+    <a class="btn" th:href="@{/search}">Search for doctors</a>
+</div>
 
 
 </body>
